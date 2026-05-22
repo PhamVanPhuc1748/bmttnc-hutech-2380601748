@@ -1,4 +1,4 @@
-from SinhVien import SinhVien
+from Sinhvien import SinhVien
 
 class QuanLySinhVien:
     listSinhVien = [] 

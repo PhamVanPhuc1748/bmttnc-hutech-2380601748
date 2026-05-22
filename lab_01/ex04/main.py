@@ -26,4 +26,51 @@ while (1 == 1):
        mssv = int(input())
        qlsv.capNhatDanhSachSinhVien(mssv)
      else:
-        print()
+        print("\nDanh sách sinh viên trống!")
+    elif (key == 3):
+       if(qlsv.soLuongSinhVien() > 0):
+          print("\n3. Xoá sinh viên")
+          print("\nNhập MSSV: ")
+          mssv = int(input())
+          if(qlsv.xoaTheoMssv(mssv)):
+             print("\nSinh viên có mssv = ", mssv, " đã bị xoá")
+          else:
+             print("\nSinh viên có mssv ", mssv, " không tồn tại!")
+       else:
+          print("\nDanh sách sinh viên trống!")
+    elif (key == 4):
+       if(qlsv.soLuongSinhVien() > 0):
+          print("\n4. Tìm kiếm sinh viên theo tên. ")
+          print("\nNhập tên sinh viên cần tìm: ")
+          name = input()
+          searchResult = qlsv.timTen(name)
+          qlsv.showSinhVien(searchResult)
+       else:
+          print("\nDanh sách sinh viên trống!")
+    elif (key == 5):
+        if(qlsv.soLuongSinhVien() > 0):
+           print("\n5. Sắp xếp sinh viên theo điểm trung bình (GPA). ")
+           qlsv.sapXepDiemTB()
+           qlsv.showSinhVien(qlsv.getListSinhVien())
+        else:
+           print("\nDanh sách sinh viên trống!")
+    elif (key == 6):
+       if(qlsv.soLuongSinhVien() > 0):
+          print("\n6. Sắp xếp sinh viên theo tên.")
+          qlsv.sapXepTenSV()
+          qlsv.showSinhVien(qlsv.getListSinhVien())
+       else:
+         print("\nDanh sách sinh viên trống!")
+    elif (key == 7):
+       if(qlsv.soLuongSinhVien() > 0):
+          print("\n7. Hiển thị danh sách sinh viên.")
+          qlsv.showSinhVien(qlsv.getListSinhVien())
+       else:
+          print("\nDanh sách sinh viên trống!")
+    elif (key == 0):
+        print("\n0. Thoát chương trình.")
+        break
+    else:
+        print("\nLựa chọn không hợp lệ. Vui lòng chọn lại!") 
+
+       
