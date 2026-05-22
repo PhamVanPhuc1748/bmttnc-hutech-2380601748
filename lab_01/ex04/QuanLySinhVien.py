@@ -18,6 +18,7 @@ class QuanLySinhVien:
 
     def nhapSinhVien(self):
         mssv = self.tao_mssv()
+        mssv = int(input("Nhập MSSV: "))
         ten = input("Nhập tên sinh viên: ")
         gioi_tinh = input("Nhập giới tính (Nam/Nữ): ")
         chuyen_nganh = input("Nhập chuyên ngành: ")
@@ -26,8 +27,8 @@ class QuanLySinhVien:
         self.xepLoaiHocLuc(sv)
         self.listSinhVien.append(sv)
 
-    def capNhatDanhSachSinhVien(self):
-        sv:SinhVien = self.timKiemSinhVien(mssv)
+    def capNhatDanhSachSinhVien(self, mssv): 
+        sv = self.timMssv(mssv) 
         if (sv != None):
             ten = input("Nhập tên sinh viên: ")
             gioi_tinh = input("Nhập giới tính (Nam/Nữ): ")
@@ -62,7 +63,8 @@ class QuanLySinhVien:
         listSV = []
         if(self.soLuongSinhVien() > 0):
             for sv in self.listSinhVien:
-                if (keyword.upper() in sv._name.upper()):
+               
+                if (ten.upper() in sv.ten.upper()): 
                     listSV.append(sv)
         return listSV
     
@@ -70,8 +72,8 @@ class QuanLySinhVien:
         isDelete = False
         sv = self.timMssv(mssv)
         if (sv != None):
-          self.listSinhVien.remove(sv)
-          isDelete = True
+            self.listSinhVien.remove(sv)
+            isDelete = True
         return isDelete
 
     def xepLoaiHocLuc(self, sv:SinhVien):
@@ -82,14 +84,16 @@ class QuanLySinhVien:
         elif(sv.diemTB >= 5):
             sv.hocLuc = "Trung Bình"
         else:
-            sv.hoLuc = "Yếu"
+            sv.hocLuc = "Yếu" 
 
     def showSinhVien(self, listSV):
-        print("{:<8} {:<18} {:<8} {:<8}{:<8} {:<8}"
+        
+        print("{:<8} {:<20} {:<12} {:<15} {:<10} {:<10}"
               .format("MSSV", "Tên", "Giới Tính", "Chuyên Ngành", "Điểm TB", "Học Lực"))
         if(listSV.__len__() > 0):
             for sv in listSV:
-                print("{:<8} {:<18} {:<8}{:<8} {:<8}" 
+                
+                print("{:<8} {:<20} {:<12} {:<15} {:<10} {:<10}" 
                       .format(sv.mssv, sv.ten, sv.gioi_tinh, sv.chuyen_nganh, sv.diemTB, sv.hocLuc))
         print("\n")             
 
