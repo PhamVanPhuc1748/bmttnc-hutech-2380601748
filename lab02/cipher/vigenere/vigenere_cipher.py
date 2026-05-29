@@ -12,7 +12,7 @@ class VigeneraCipher:
                    encrypted_text += chr((ord(char) - ord('A') + key_shift) % 26 + ord('A'))
                else:
                     encrypted_text += chr((ord(char) - ord('a') + key_shift) % 26 + ord('a'))
-                    key_index += 1
+               key_index += 1
             else:
                 encrypted_text += char
         return encrypted_text
@@ -27,7 +27,7 @@ class VigeneraCipher:
                     decrypted_text += chr((ord(char) - ord('A') - key_shift) % 26 + ord('A'))
                 else:
                     decrypted_text += chr((ord(char) - ord('a') - key_shift) % 26 + ord('a'))
-                    key_index += 1
+                key_index += 1
             else:
                 decrypted_text += char
         return decrypted_text
