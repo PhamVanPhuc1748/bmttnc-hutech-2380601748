@@ -12,8 +12,14 @@ class PlayfairCipher:
         alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
         remaining_letters = [
             letter for letter in alphabet if letter not in key_set]
-        matrix = list(key)
-
+        
+        # --- ĐOẠN MÃ ĐÃ ĐƯỢC VÁ LỖI TRÙNG LẶP ---
+        matrix = []
+        for char in key:
+            if char not in matrix:
+                matrix.append(char)
+        # ---------------------------------------
+         
         for letter in remaining_letters:
             matrix.append(letter)
             if len(matrix) == 25:
