@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>678</height>
+    <width>825</width>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>190</x>
       <y>50</y>
-      <width>421</width>
+      <width>451</width>
       <height>51</height>
      </rect>
     </property>
@@ -32,7 +32,7 @@
      </font>
     </property>
     <property name="text">
-     <string>CAESAR CIPHER</string>
+     <string>VIGENERE CIPHER</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -40,7 +40,7 @@
      <rect>
       <x>10</x>
       <y>130</y>
-      <width>121</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
@@ -59,7 +59,7 @@
      <rect>
       <x>10</x>
       <y>350</y>
-      <width>131</width>
+      <width>181</width>
       <height>61</height>
      </rect>
     </property>
@@ -78,7 +78,7 @@
      <rect>
       <x>10</x>
       <y>300</y>
-      <width>71</width>
+      <width>151</width>
       <height>41</height>
      </rect>
     </property>
@@ -89,14 +89,14 @@
      </font>
     </property>
     <property name="text">
-     <string>Key:</string>
+     <string>Keyword:</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="txt_plain_text">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>140</y>
+      <x>170</x>
+      <y>130</y>
       <width>631</width>
       <height>141</height>
      </rect>
@@ -110,8 +110,8 @@
    <widget class="QTextEdit" name="txt_cipher">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>370</y>
+      <x>170</x>
+      <y>360</y>
       <width>631</width>
       <height>131</height>
      </rect>
@@ -125,8 +125,8 @@
    <widget class="QPlainTextEdit" name="txt_key">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>300</y>
+      <x>170</x>
+      <y>290</y>
       <width>631</width>
       <height>51</height>
      </rect>
@@ -185,7 +185,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>825</width>
      <height>26</height>
     </rect>
    </property>

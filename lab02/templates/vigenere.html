@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigenere Protocol | Gundam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='gundam.css') }}">
+    <script defer src="{{ url_for('static', filename='gundam.js') }}"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 relative">
+    <div class="scan-line"></div>
+
+    <div class="w-full max-w-5xl gundam-shell p-1">
+        <div class="gundam-bar text-black px-4 py-2 flex justify-between items-center mb-6">
+            <span class="font-bold tracking-[0.3em]">PROTOCOL: VIGENERE</span>
+            <span class="text-xs">[ KEYWORD GATE ]</span>
+        </div>
+
+        <div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <section class="md:pr-8 md:border-r border-slate-700">
+                <div class="mb-6 border-b border-slate-700 pb-2">
+                    <p class="text-xs text-gundam-blue tracking-[0.35em] uppercase">Polyalphabetic Burst</p>
+                    <h2 class="text-2xl text-white font-bold mt-2">> ENCRYPT_MODE</h2>
+                </div>
+                <form method="POST" action="/encrypt_vigenere" class="space-y-5" onsubmit="return gundamAnimateSubmit(this)">
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1 uppercase tracking-[0.25em]">Input Data (Plaintext)</label>
+                        <input type="text" name="inputPlainText" minlength="1" maxlength="256" class="w-full cyber-input px-3 py-3 text-sm" required autofocus autocomplete="off" />
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1 uppercase tracking-[0.25em]">Auth Key (Keyword)</label>
+                        <input type="text" name="inputKeyPlain" pattern="[A-Za-z]+" title="Only alphabetic characters are allowed" minlength="1" maxlength="64" oninput="gundamUppercaseAlpha(this)" class="w-full cyber-input px-3 py-3 text-sm" required autocomplete="off" />
+                        <p class="text-[10px] text-gundam-yellow mt-1.5 tracking-wider uppercase">Keyword must contain letters only.</p>
+                    </div>
+                    <button type="submit" class="cyber-btn w-full py-3 text-sm font-bold tracking-[0.25em] mt-4 flex justify-between px-4"><span>EXECUTE</span><span>// 01</span></button>
+                </form>
+            </section>
+
+            <section>
+                <div class="mb-6 border-b border-slate-700 pb-2">
+                    <p class="text-xs text-gundam-red tracking-[0.35em] uppercase">Polyalphabetic Reverse</p>
+                    <h2 class="text-2xl text-white font-bold mt-2">> DECRYPT_MODE</h2>
+                </div>
+                <form method="POST" action="/decrypt_vigenere" class="space-y-5" onsubmit="return gundamAnimateSubmit(this)">
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1 uppercase tracking-[0.25em]">Cipher Data (Encrypted)</label>
+                        <input type="text" name="inputCipherText" minlength="1" maxlength="256" class="w-full cyber-input px-3 py-3 text-sm" required autocomplete="off" />
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1 uppercase tracking-[0.25em]">Auth Key (Keyword)</label>
+                        <input type="text" name="inputKeyCipher" pattern="[A-Za-z]+" title="Only alphabetic characters are allowed" minlength="1" maxlength="64" oninput="gundamUppercaseAlpha(this)" class="w-full cyber-input px-3 py-3 text-sm" required autocomplete="off" />
+                        <p class="text-[10px] text-gundam-yellow mt-1.5 tracking-wider uppercase">Keyword must contain letters only.</p>
+                    </div>
+                    <button type="submit" class="cyber-btn w-full py-3 text-sm font-bold tracking-[0.25em] mt-4 flex justify-between px-4" data-variant="danger"><span>REVERSE</span><span>// 02</span></button>
+                </form>
+            </section>
+        </div>
+
+        <div class="px-6 py-4 flex justify-between text-xs text-slate-500">
+            <a href="/" class="hover:text-white cursor-pointer">&lt; RETURN_TO_ROOT</a>
+            <span>STATUS: ONLINE</span>
+        </div>
+    </div>
+</body>
+</html>
