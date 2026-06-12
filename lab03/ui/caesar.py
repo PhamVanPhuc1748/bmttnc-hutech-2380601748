@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui\caesar.ui'
+# Form implementation generated from reading ui file './ui/caesar.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(220, 50, 421, 51))
+        self.label.setGeometry(QtCore.QRect(240, 20, 421, 51))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(28)
@@ -83,9 +83,21 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.btn_decrypt.setFont(font)
         self.btn_decrypt.setObjectName("btn_decrypt")
+        self.label_7 = QtWidgets.QLabel(self.centralwidget)
+        self.label_7.setGeometry(QtCore.QRect(30, 20, 121, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_7.setFont(font)
+        self.label_7.setObjectName("label_7")
+        self.label_8 = QtWidgets.QLabel(self.centralwidget)
+        self.label_8.setGeometry(QtCore.QRect(30, 50, 121, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_8.setFont(font)
+        self.label_8.setObjectName("label_8")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -104,6 +116,8 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "Key:"))
         self.btn_encrypt.setText(_translate("MainWindow", "Encrypt"))
         self.btn_decrypt.setText(_translate("MainWindow", "Decrypt"))
+        self.label_7.setText(_translate("MainWindow", "Phạm Văn Phúc"))
+        self.label_8.setText(_translate("MainWindow", "2380601748"))
 
 
 if __name__ == "__main__":

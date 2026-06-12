@@ -179,36 +179,36 @@
      <string>Decrypt</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>80</y>
-      <width>171</width>
-      <height>31</height>
+      <x>30</x>
+      <y>20</y>
+      <width>121</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>18</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
      <string>Phạm Văn Phúc</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>80</y>
-      <width>171</width>
-      <height>31</height>
+      <x>30</x>
+      <y>50</y>
+      <width>121</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>18</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">

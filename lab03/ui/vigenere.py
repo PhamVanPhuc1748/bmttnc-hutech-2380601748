@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui\vigenere.ui'
+# Form implementation generated from reading ui file './ui/vigenere.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -10,8 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-import os
-os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = "../platforms"
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -29,7 +27,7 @@ class Ui_MainWindow(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(10, 130, 161, 41))
+        self.label_2.setGeometry(QtCore.QRect(10, 190, 161, 41))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(20)
@@ -50,13 +48,13 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.txt_plain_text = QtWidgets.QTextEdit(self.centralwidget)
-        self.txt_plain_text.setGeometry(QtCore.QRect(170, 130, 631, 141))
+        self.txt_plain_text.setGeometry(QtCore.QRect(170, 180, 631, 61))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.txt_plain_text.setFont(font)
         self.txt_plain_text.setObjectName("txt_plain_text")
         self.txt_cipher = QtWidgets.QTextEdit(self.centralwidget)
-        self.txt_cipher.setGeometry(QtCore.QRect(170, 360, 631, 131))
+        self.txt_cipher.setGeometry(QtCore.QRect(170, 360, 631, 91))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.txt_cipher.setFont(font)
@@ -85,9 +83,21 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.btn_decrypt.setFont(font)
         self.btn_decrypt.setObjectName("btn_decrypt")
+        self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setGeometry(QtCore.QRect(30, 10, 121, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_5.setFont(font)
+        self.label_5.setObjectName("label_5")
+        self.label_6 = QtWidgets.QLabel(self.centralwidget)
+        self.label_6.setGeometry(QtCore.QRect(30, 40, 121, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_6.setFont(font)
+        self.label_6.setObjectName("label_6")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 825, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 825, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -106,6 +116,8 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "Keyword:"))
         self.btn_encrypt.setText(_translate("MainWindow", "Encrypt"))
         self.btn_decrypt.setText(_translate("MainWindow", "Decrypt"))
+        self.label_5.setText(_translate("MainWindow", "Phạm Văn Phúc"))
+        self.label_6.setText(_translate("MainWindow", "2380601748"))
 
 
 if __name__ == "__main__":

@@ -39,7 +39,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>130</y>
+      <y>190</y>
       <width>161</width>
       <height>41</height>
      </rect>
@@ -96,9 +96,9 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>130</y>
+      <y>180</y>
       <width>631</width>
-      <height>141</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -113,7 +113,7 @@
       <x>170</x>
       <y>360</y>
       <width>631</width>
-      <height>131</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="font">
@@ -179,6 +179,42 @@
      <string>Decrypt</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Phạm Văn Phúc</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>40</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>2380601748</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -186,7 +222,7 @@
      <x>0</x>
      <y>0</y>
      <width>825</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
