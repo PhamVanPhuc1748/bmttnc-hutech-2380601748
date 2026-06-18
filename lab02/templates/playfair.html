@@ -3,98 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playfair Protocol | Gundam</title>
+    <title>HUTECH | Playfair</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='gundam.css') }}">
     <script defer src="{{ url_for('static', filename='gundam.js') }}"></script>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4 relative">
-    <div class="scan-line"></div>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white p-4 shadow-md flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <a href="/"><img src="https://file1.hutech.edu.vn/file/editor/homepage/stories/hinh34/logo%20CMYK-01.png" alt="HUTECH Logo" class="h-16 bg-white p-2 rounded-lg shadow-sm hover:opacity-90 transition"></a>
+        </div>
+        <div class="text-right text-sm">
+            <p class="font-semibold">PHẠM VĂN PHÚC</p>
+            <p class="text-blue-200">MSSV: 2380601748</p>
+        </div>
+    </header>
 
-    <div class="w-full max-w-3xl gundam-shell p-1">
-        <div class="gundam-bar text-black px-4 py-2 flex justify-between items-center mb-6">
-            <span class="font-bold tracking-[0.3em]">PROTOCOL: PLAYFAIR</span>
-            <span class="text-xs">[ 5x5 MATRIX ]</span>
+    <main class="flex-grow p-6 md:p-10 max-w-3xl mx-auto w-full">
+        <div class="mb-8 flex justify-between items-center border-b pb-4">
+            <h2 class="text-2xl font-bold text-gray-800">PLAYFAIR CIPHER</h2>
+            <a href="/" class="text-blue-600 underline text-sm">Quay lại</a>
         </div>
 
-        <div class="p-6 md:p-10">
-            <div class="flex w-full max-w-md mx-auto mb-10 gap-4">
-                <button type="button" id="btn-enc" onclick="gundamSwitchMode('enc')" class="px-4 py-3 border border-[#6eb6ff] bg-[#091224] text-[#6eb6ff] shadow-[0_0_15px_rgba(110,182,255,0.2)] font-bold tracking-[0.15em] text-xs md:text-sm transition-all w-1/2 text-center">ENCRYPT</button>
-                <button type="button" id="btn-dec" onclick="gundamSwitchMode('dec')" class="px-4 py-3 border border-slate-700 bg-[#03060d] text-slate-500 font-bold tracking-[0.15em] text-xs md:text-sm transition-all hover:text-white w-1/2 text-center">DECRYPT</button>
-            </div>
-
-            <section id="sec-enc" class="block animate-fade-in">
-                <form method="POST" action="/encrypt_playfair" class="space-y-6" onsubmit="return gundamAnimateSubmit(this)">
-                    <div class="border border-slate-700 bg-[#03060d] p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 focus-within:border-[#6eb6ff] focus-within:shadow-[0_0_15px_rgba(110,182,255,0.15)] transition-all relative overflow-hidden group">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#6eb6ff] opacity-50 group-focus-within:opacity-100"></div>
-                        <span class="text-[#6eb6ff] text-xs font-bold tracking-[0.2em] whitespace-nowrap pl-3 w-32">[ TX_DATA ] ></span>
-                        <input type="text" name="inputPlainText" pattern="[A-Za-z]+" title="Only alphabetic characters are allowed" minlength="1" maxlength="120" oninput="gundamUppercaseAlpha(this)" class="bg-transparent outline-none w-full text-white text-sm tracking-widest font-mono uppercase" placeholder="ALPHA_ONLY..." required autofocus autocomplete="off" />
-                    </div>
-
-                    <div class="border border-slate-700 bg-[#03060d] p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 focus-within:border-[#f8d44a] focus-within:shadow-[0_0_15px_rgba(248,212,74,0.15)] transition-all relative overflow-hidden group">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#f8d44a] opacity-50 group-focus-within:opacity-100"></div>
-                        <span class="text-[#f8d44a] text-xs font-bold tracking-[0.2em] whitespace-nowrap pl-3 w-32">[ AUTH_KEY ] ></span>
-                        <input type="text" name="inputKeyPlain" pattern="[A-Za-z]+" title="Only alphabetic characters are allowed" minlength="1" maxlength="25" oninput="gundamUppercaseAlpha(this)" class="bg-transparent outline-none w-full text-white text-sm tracking-widest font-mono uppercase" placeholder="KEYWORD..." required autocomplete="off" />
-                    </div>
-
-                    <p class="text-[10px] text-gundam-yellow tracking-wider uppercase text-right">SYSTEM: J is normalized to I automatically.</p>
-
-                    <button type="submit" class="cyber-btn w-full h-[54px] text-sm font-bold tracking-[0.25em] flex justify-between items-center px-6 mt-4">
-                        <span>LAUNCH_ENCRYPTION</span><span class="text-[#6eb6ff] animate-pulse">>></span>
-                    </button>
-                </form>
-            </section>
-
-            <section id="sec-dec" class="hidden animate-fade-in">
-                <form method="POST" action="/decrypt_playfair" class="space-y-6" onsubmit="return gundamAnimateSubmit(this)">
-                    <div class="border border-slate-700 bg-[#03060d] p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 focus-within:border-[#ff5a67] focus-within:shadow-[0_0_15px_rgba(255,90,103,0.15)] transition-all relative overflow-hidden group">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#ff5a67] opacity-50 group-focus-within:opacity-100"></div>
-                        <span class="text-[#ff5a67] text-xs font-bold tracking-[0.2em] whitespace-nowrap pl-3 w-32">[ RX_CIPHER ] ></span>
-                        <input type="text" name="inputCipherText" pattern="[A-Za-z]+" title="Only alphabetic characters are allowed" minlength="1" maxlength="120" oninput="gundamUppercaseAlpha(this)" class="bg-transparent outline-none w-full text-white text-sm tracking-widest font-mono uppercase" placeholder="CIPHER_DATA..." required autocomplete="off" />
-                    </div>
-
-                    <div class="border border-slate-700 bg-[#03060d] p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 focus-within:border-[#f8d44a] focus-within:shadow-[0_0_15px_rgba(248,212,74,0.15)] transition-all relative overflow-hidden group">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#f8d44a] opacity-50 group-focus-within:opacity-100"></div>
-                        <span class="text-[#f8d44a] text-xs font-bold tracking-[0.2em] whitespace-nowrap pl-3 w-32">[ AUTH_KEY ] ></span>
-                        <input type="text" name="inputKeyCipher" pattern="[A-Za-z]+" title="Only alphabetic characters are allowed" minlength="1" maxlength="25" oninput="gundamUppercaseAlpha(this)" class="bg-transparent outline-none w-full text-white text-sm tracking-widest font-mono uppercase" placeholder="KEYWORD..." required autocomplete="off" />
-                    </div>
-
-                    <p class="text-[10px] text-gundam-yellow tracking-wider uppercase text-right">SYSTEM: J is normalized to I automatically.</p>
-
-                    <button type="submit" class="cyber-btn w-full h-[54px] text-sm font-bold tracking-[0.25em] flex justify-between items-center px-6 mt-4" data-variant="danger">
-                        <span>REVERSE_PROTOCOL</span><span class="text-[#ff5a67] animate-pulse">>></span>
-                    </button>
-                </form>
-            </section>
+        <div class="flex w-full mb-8">
+            <button type="button" id="btn-enc" onclick="switchMode('enc')" class="w-1/2 py-3 bg-blue-100 text-blue-800 font-bold border-b-2 border-blue-600">MÃ HÓA</button>
+            <button type="button" id="btn-dec" onclick="switchMode('dec')" class="w-1/2 py-3 bg-white text-gray-500 font-bold border-b-2 border-transparent">GIẢI MÃ</button>
         </div>
 
-        <div class="px-6 py-4 flex justify-between text-xs text-slate-500 border-t border-slate-800">
-            <a href="/" class="hover:text-white cursor-pointer">&lt; RETURN_TO_ROOT</a>
-            <span>STATUS: ONLINE</span>
-        </div>
-    </div>
+        <section id="sec-enc" class="block">
+            <form method="POST" action="/encrypt_playfair" class="space-y-6" onsubmit="return validatePlayfair(event, this)">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Bản rõ (Plaintext - Chỉ chữ cái):</label>
+                    <input type="text" name="inputPlainText" class="w-full p-3 border border-gray-300 rounded uppercase" required autofocus autocomplete="off" />
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Từ khóa (Keyword - Chỉ chữ cái):</label>
+                    <input type="text" name="inputKeyPlain" class="w-full p-3 border border-gray-300 rounded uppercase" required autocomplete="off" />
+                </div>
+                <p class="text-xs text-gray-500 text-right">Lưu ý: Ký tự J sẽ được tự động chuyển thành I.</p>
+                <button type="submit" class="w-full py-3 bg-blue-600 text-white font-bold rounded">THỰC HIỆN MÃ HÓA</button>
+            </form>
+        </section>
+
+        <section id="sec-dec" class="hidden">
+            <form method="POST" action="/decrypt_playfair" class="space-y-6" onsubmit="return validatePlayfair(event, this)">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Bản mã (Ciphertext - Chỉ chữ cái):</label>
+                    <input type="text" name="inputCipherText" class="w-full p-3 border border-gray-300 rounded uppercase" required autocomplete="off" />
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Từ khóa (Keyword - Chỉ chữ cái):</label>
+                    <input type="text" name="inputKeyCipher" class="w-full p-3 border border-gray-300 rounded uppercase" required autocomplete="off" />
+                </div>
+                <p class="text-xs text-gray-500 text-right">Lưu ý: Ký tự J sẽ được tự động chuyển thành I.</p>
+                <button type="submit" class="w-full py-3 bg-red-600 text-white font-bold rounded">THỰC HIỆN GIẢI MÃ</button>
+            </form>
+        </section>
+    </main>
 
     <script>
-        function gundamSwitchMode(mode) {
+        function switchMode(mode) {
             const encSec = document.getElementById('sec-enc');
             const decSec = document.getElementById('sec-dec');
             const btnEnc = document.getElementById('btn-enc');
             const btnDec = document.getElementById('btn-dec');
 
-            const classActiveEnc = "px-4 py-3 border border-[#6eb6ff] bg-[#091224] text-[#6eb6ff] shadow-[0_0_15px_rgba(110,182,255,0.2)] font-bold tracking-[0.15em] text-xs md:text-sm transition-all w-1/2 text-center";
-            const classInactiveEnc = "px-4 py-3 border border-slate-700 bg-[#03060d] text-slate-500 font-bold tracking-[0.15em] text-xs md:text-sm transition-all hover:text-white w-1/2 text-center";
-            
-            const classActiveDec = "px-4 py-3 border border-[#ff5a67] bg-[#1a0b0d] text-[#ff5a67] shadow-[0_0_15px_rgba(255,90,103,0.2)] font-bold tracking-[0.15em] text-xs md:text-sm transition-all w-1/2 text-center";
-            const classInactiveDec = "px-4 py-3 border border-slate-700 bg-[#03060d] text-slate-500 font-bold tracking-[0.15em] text-xs md:text-sm transition-all hover:text-white w-1/2 text-center";
-
             if(mode === 'enc') {
-                encSec.classList.remove('hidden'); decSec.classList.add('hidden');
-                btnEnc.className = classActiveEnc; btnDec.className = classInactiveDec;
+                encSec.style.display = 'block'; decSec.style.display = 'none';
+                btnEnc.className = "w-1/2 py-3 bg-blue-100 text-blue-800 font-bold border-b-2 border-blue-600";
+                btnDec.className = "w-1/2 py-3 bg-white text-gray-500 font-bold border-b-2 border-transparent";
             } else {
-                encSec.classList.add('hidden'); decSec.classList.remove('hidden');
-                btnEnc.className = classInactiveEnc; btnDec.className = classActiveDec;
+                encSec.style.display = 'none'; decSec.style.display = 'block';
+                btnEnc.className = "w-1/2 py-3 bg-white text-gray-500 font-bold border-b-2 border-transparent";
+                btnDec.className = "w-1/2 py-3 bg-red-100 text-red-800 font-bold border-b-2 border-red-600";
             }
+        }
+
+        function validatePlayfair(event, form) {
+            const textInputs = form.querySelectorAll('input[type="text"]');
+            const textInput = textInputs[0].value.trim();
+            const keyInput = textInputs[1].value.trim();
+
+            const alphaRegex = /^[A-Za-z]+$/;
+
+            if (!textInput || !alphaRegex.test(textInput)) {
+                alert("LỖI: Văn bản chỉ được chứa các chữ cái (không có khoảng trắng, số hay ký tự đặc biệt)!");
+                event.preventDefault();
+                return false;
+            }
+
+            if (!keyInput || !alphaRegex.test(keyInput)) {
+                alert("LỖI: Từ khóa chỉ được chứa các chữ cái (không có khoảng trắng, số hay ký tự đặc biệt)!");
+                event.preventDefault();
+                return false;
+            }
+            return true;
         }
     </script>
 </body>

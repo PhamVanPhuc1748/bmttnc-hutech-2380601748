@@ -115,9 +115,12 @@ def encrypt():
     if error:
         return json_error(error)
 
-    key, error = require_int_in_range(data.get('key'), 'key', 2, 20)
+    key, error = require_int_in_range(data.get('key'), 'key', 2, 100)
     if error:
         return json_error(error)
+
+    if key >= len(plain_text):
+        return json_error("Số đường ray (Khóa) phải nhỏ hơn độ dài của văn bản để mã hóa có hiệu lực.")
 
     encrypted_text = railfence_cipher.rail_fence_encrypt(plain_text, key)
     return jsonify({'encrypted_text': encrypted_text})
@@ -130,9 +133,12 @@ def decrypt():
     if error:
         return json_error(error)
 
-    key, error = require_int_in_range(data.get('key'), 'key', 2, 20)
+    key, error = require_int_in_range(data.get('key'), 'key', 2, 100)
     if error:
         return json_error(error)
+
+    if key >= len(cipher_text):
+        return json_error("Số đường ray (Khóa) phải nhỏ hơn độ dài của bản mã để giải mã có hiệu lực.")
 
     decrypted_text = railfence_cipher.rail_fence_decrypt(cipher_text, key)
     return jsonify({'decrypted_text': decrypted_text})

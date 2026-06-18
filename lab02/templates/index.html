@@ -3,77 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUTECH | Gundam Cipher Deck</title>
+    <title>HUTECH | Crypto Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='gundam.css') }}">
 </head>
-<body class="min-h-screen flex items-center justify-center p-4 relative">
-    <div class="scan-line"></div>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white p-4 shadow-md flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <a href="/"><img src="https://file1.hutech.edu.vn/file/editor/homepage/stories/hinh34/logo%20CMYK-01.png" alt="HUTECH Logo" class="h-16 bg-white p-2 rounded-lg shadow-sm hover:opacity-90 transition"></a>
+        </div>
+        <div class="text-right text-sm">
+            <p class="font-semibold">PHẠM VĂN PHÚC</p>
+            <p class="text-blue-200">MSSV: 2380601748</p>
+        </div>
+    </header>
 
-    <main class="w-full max-w-6xl gundam-shell p-1">
-        <div class="gundam-bar text-black px-4 py-2 flex justify-between items-center">
-            <span class="font-bold tracking-[0.3em]">SYSTEM: GUNDAM CIPHER DECK</span>
-            <span class="text-xs">[ UC 0079 ]</span>
+    <main class="flex-grow p-6 md:p-10 max-w-5xl mx-auto w-full">
+        <div class="mb-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Hệ thống Mã hóa Cơ bản</h2>
+            <p class="text-gray-600">Chọn một thuật toán bên dưới để thực hiện mã hóa và giải mã.</p>
         </div>
 
-        <div class="p-6 md:p-8 space-y-8">
-            <section class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-center">
-                <div class="space-y-5">
-                    <p class="text-gundam-yellow text-xs tracking-[0.4em] uppercase">Mobile suit encryption interface</p>
-                    <h1 class="gundam-title text-4xl md:text-6xl font-bold leading-tight">GUNDAM CRYPTO LAB</h1>
-                    <p class="gundam-subtitle max-w-2xl text-sm md:text-base leading-7">A cockpit-style control room for Caesar, Playfair, Vigenère, and Rail Fence.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="gundam-chip px-4 py-2 text-xs uppercase tracking-[0.25em]">RX-78 MODE</span>
-                        <span class="gundam-chip px-4 py-2 text-xs uppercase tracking-[0.25em]">HUD ACTIVE</span>
-                        <span class="gundam-chip px-4 py-2 text-xs uppercase tracking-[0.25em]">SAFE INPUT</span>
-                    </div>
-                </div>
-
-                <div class="gundam-panel p-5 md:p-6 space-y-4">
-                    <div class="flex items-center justify-between border-b border-slate-700 pb-3">
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase tracking-[0.3em]">Pilot</p>
-                            <p class="text-lg text-white font-bold">PHẠM VĂN PHÚC</p>
-                        </div>
-                        <div class="status-pill px-3 py-2 text-xs uppercase tracking-[0.25em]">UID 2380601748</div>
-                    </div>
-                    <p class="text-sm text-slate-300 leading-6">Select a module below to launch the cipher cockpit.</p>
-                    <div class="grid grid-cols-2 gap-3 text-xs uppercase tracking-[0.2em]">
-                        <div class="gundam-chip px-3 py-3 text-center">Beam Frame</div>
-                        <div class="gundam-chip px-3 py-3 text-center">Core Block</div>
-                        <div class="gundam-chip px-3 py-3 text-center">Thruster A</div>
-                        <div class="gundam-chip px-3 py-3 text-center">Thruster B</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-                <a href="/caesar" class="cyber-card flex flex-col items-start p-5 border border-slate-700 group">
-                    <span class="text-xs text-slate-400 mb-4 group-hover:text-gundam-blue">01 // LAUNCH</span>
-                    <h3 class="font-bold text-2xl mb-2 text-white group-hover:neon-text">CAESAR</h3>
-                    <p class="text-sm text-slate-400">Shift cipher with strict key range 1-25.</p>
-                    <div class="mt-auto pt-6 w-full flex justify-end"><span class="text-gundam-yellow opacity-0 group-hover:opacity-100 transition-opacity">DEPLOY [+]</span></div>
-                </a>
-                <a href="/playfair" class="cyber-card flex flex-col items-start p-5 border border-slate-700 group">
-                    <span class="text-xs text-slate-400 mb-4 group-hover:text-gundam-blue">02 // LAUNCH</span>
-                    <h3 class="font-bold text-2xl mb-2 text-white group-hover:neon-text">PLAYFAIR</h3>
-                    <p class="text-sm text-slate-400">Alphabet-only controls with a 5x5 matrix.</p>
-                    <div class="mt-auto pt-6 w-full flex justify-end"><span class="text-gundam-yellow opacity-0 group-hover:opacity-100 transition-opacity">DEPLOY [+]</span></div>
-                </a>
-                <a href="/vigenere" class="cyber-card flex flex-col items-start p-5 border border-slate-700 group">
-                    <span class="text-xs text-slate-400 mb-4 group-hover:text-gundam-blue">03 // LAUNCH</span>
-                    <h3 class="font-bold text-2xl mb-2 text-white group-hover:neon-text">VIGENERE</h3>
-                    <p class="text-sm text-slate-400">Polyalphabetic cipher with keyword validation.</p>
-                    <div class="mt-auto pt-6 w-full flex justify-end"><span class="text-gundam-yellow opacity-0 group-hover:opacity-100 transition-opacity">DEPLOY [+]</span></div>
-                </a>
-                <a href="/railfence" class="cyber-card flex flex-col items-start p-5 border border-slate-700 group">
-                    <span class="text-xs text-slate-400 mb-4 group-hover:text-gundam-blue">04 // LAUNCH</span>
-                    <h3 class="font-bold text-2xl mb-2 text-white group-hover:neon-text">RAIL FENCE</h3>
-                    <p class="text-sm text-slate-400">Transposition cipher with minimum rail depth.</p>
-                    <div class="mt-auto pt-6 w-full flex justify-end"><span class="text-gundam-yellow opacity-0 group-hover:opacity-100 transition-opacity">DEPLOY [+]</span></div>
-                </a>
-            </section>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="/caesar" class="block bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+                <div class="text-blue-500 font-bold mb-2">01 // CAESAR</div>
+                <p class="text-sm text-gray-600">Mã hóa dịch vòng với khóa K từ 1-25.</p>
+            </a>
+            <a href="/playfair" class="block bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+                <div class="text-blue-500 font-bold mb-2">02 // PLAYFAIR</div>
+                <p class="text-sm text-gray-600">Mã hóa đa chữ cái với ma trận 5x5.</p>
+            </a>
+            <a href="/vigenere" class="block bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+                <div class="text-blue-500 font-bold mb-2">03 // VIGENERE</div>
+                <p class="text-sm text-gray-600">Mã hóa đa bảng chữ cái với từ khóa.</p>
+            </a>
+            <a href="/railfence" class="block bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+                <div class="text-blue-500 font-bold mb-2">04 // RAIL FENCE</div>
+                <p class="text-sm text-gray-600">Mã hóa hoán vị theo đường ray.</p>
+            </a>
         </div>
     </main>
 </body>

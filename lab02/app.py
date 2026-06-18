@@ -212,9 +212,12 @@ def railfence_encrypt():
     if error:
         return render_validation_error(error)
 
-    key, error = require_int_in_range(request.form.get('inputKeyPlain'), 'Khóa Rail Fence', 2, 20)
+    key, error = require_int_in_range(request.form.get('inputKeyPlain'), 'Khóa Rail Fence', 2, 100)
     if error:
         return render_validation_error(error)
+
+    if key >= len(text):
+        return render_validation_error("Số đường ray (Khóa) phải nhỏ hơn độ dài của văn bản để mã hóa có hiệu lực.")
 
     RailFence = RailFenceCipher()
     encrypted_text = RailFence.rail_fence_encrypt(text, key)
@@ -233,9 +236,12 @@ def railfence_decrypt():
     if error:
         return render_validation_error(error)
 
-    key, error = require_int_in_range(request.form.get('inputKeyCipher'), 'Khóa Rail Fence', 2, 20)
+    key, error = require_int_in_range(request.form.get('inputKeyCipher'), 'Khóa Rail Fence', 2, 100)
     if error:
         return render_validation_error(error)
+
+    if key >= len(text):
+        return render_validation_error("Số đường ray (Khóa) phải nhỏ hơn độ dài của bản mã để giải mã có hiệu lực.")
 
     RailFence = RailFenceCipher()
     decrypted_text = RailFence.rail_fence_decrypt(text, key)
